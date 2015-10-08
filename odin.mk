@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BOARD_HAVE_IR_BLASTER := true
-
 # Inherit the fusion-common definitions
 $(call inherit-product, device/sony/fusion3-common/fusion3.mk)
 
@@ -42,10 +40,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/sensors.conf:system/etc/sensors.conf
 
-# Device specific sysmon_monitor conf
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/etc/sysmon.cfg:system/etc/sysmon.cfg
-
 # Device specific init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.device.rc:root/init.device.rc
@@ -54,14 +48,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.sony.usb.rc:root/init.sony.usb.rc
 
-# Vold
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/etc/vold.fstab:system/etc/vold.fstab
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/rootdir/system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
+    $(LOCAL_PATH)/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# Thermal monitor configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/thermanager.xml:system/etc/thermanager.xml
 
 # Touchpad
 PRODUCT_COPY_FILES += \
